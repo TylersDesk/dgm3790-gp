@@ -53,6 +53,6 @@ Now create your own personal branch with your name:
 
 This should create and checkout a new branch. Run `git status` again to make sure your on the new branch.
 
-- `git status' -> should say something like `# On branch YOURNAME`
+- `git status` -> should say something like `# On branch YOURNAME`
 
 Now you free to play around, change code and all that. I will go over adding those changes back into the DEVELOP branch on Tuesday.
