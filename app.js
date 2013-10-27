@@ -4,10 +4,10 @@
  */
 
 var express = require('express'),
-  routes = require('./routes'),
-  api = require('./routes/api'),
-  http = require('http'),
-  path = require('path');
+    routes = require('./routes'),
+    api = require('./routes/api'),
+    http = require('http'),
+    path = require('path');
 
 var app = module.exports = express();
 
@@ -41,8 +41,8 @@ if (app.get('env') === 'production') {
  * Routes
  */
 
+//Look into index.js where app.init fires. Thanks Keith.
 routes.init(app);
-
 
 /**
  * Start Server
