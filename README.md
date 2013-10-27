@@ -1,7 +1,6 @@
-# DGM3790 - Group Project
-## Comic Caption App
+# DGM3790 - Comic Caption App
 
-Team Members:
+###Team Members:
 
 John Perl <johnrperl@gmail.com>
 
