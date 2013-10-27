@@ -34,4 +34,25 @@ Now you can simply tell node to run the server:
 
 You should see the server running. If you don't check the following steps above. Go check out the app:
 
-+ `http:\\www.localhost.com:3000`
++ `http:\\www.localhost.com:3000` - In a browser
+
+### Want to play with the code?
+
+If you want to play with the code, please create a new branch. I will go over this with the team on Tuesday in class, but if you want to get into things before that follow these steps.
+
+
+First run a git status, and make sure your on 'develop'
+
+- `git status`
+
+This should say something like `# On branch develop`. If it says master then you need to run `git checkout -f develop`.
+
+Now create your own personal branch with your name:
+
+- `git checkout -b YOURNAME`
+
+This should create and checkout a new branch. Run `git status` again to make sure your on the new branch.
+
+- `git status' -> should say something like `# On branch YOURNAME`
+
+Now you free to play around, change code and all that. I will go over adding those changes back into the DEVELOP branch on Tuesday.
