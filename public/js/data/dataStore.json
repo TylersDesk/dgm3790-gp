@@ -2,23 +2,23 @@
 	"captions":[
 		{
 			"id":"comic01",
-			"url":"comic01.png"
+			"img":"comic01.png"
 		},
 		{
 			"id":"comic02",
-			"url":"comic02.png"
+			"img":"comic02.png"
 		},
 		{
 			"id":"comic03",
-			"url":"comic03.png"
+			"img":"comic03.png"
 		},
 		{
 			"id":"comic04",
-			"url":"comic04.png"
+			"img":"comic04.png"
 		},
 		{
 			"id":"comic05",
-			"url":"comic05.png"
+			"img":"comic05.png"
 		}
 	]
 }

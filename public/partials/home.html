@@ -2,9 +2,16 @@
 
 </div>
 
-<div ng-repeat="captionItem in captions" class="container">
-	<h2>{{captionItem.id}}</h2>
-	<img class="small-capt-img" ng-src="/img/caption-img/{{captionItem.url}}" />
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 captoin-capsule" ng-repeat="captionItem in captions">
+			<h2>{{captionItem.id}}</h2>
+			<a href="/caption/{{captionItem.id}}">
+				<img class="small-capt-img" ng-src="/img/caption-img/{{captionItem.img}}" />
+			</a>
+		</div>
+	</div>
+	
 </div>
 
 <!--  Anguluar UI Stuff
