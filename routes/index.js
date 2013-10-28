@@ -14,9 +14,9 @@ exports.init = function (app) {
 };
 
 function index(req, res) {
-  fs.readFile(__dirname + '/public/index.html', 'utf8', function(err, text){
+  res.render(__dirname + '/public/index', 'utf8', function(err, html){
     //console.log('i called index');
-    res.send(text);
+    res.send(html);
   });
 }
 
