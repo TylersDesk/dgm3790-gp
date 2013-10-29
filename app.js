@@ -43,6 +43,10 @@ if (app.get('env') === 'production') {
 
 //Look into index.js where app.init fires. Thanks Keith.
 routes.init(app);
+api.init(app);
+app.use(function (req, res) {
+	res.send(404, "404 Sorry");
+});
 
 /**
  * Start Server

@@ -1,10 +1,7 @@
-
-var fs = require('fs');
-
 /*
  * GET home page.
  */
-
+ 
 exports.init = function (app) {
 
   app.get('/', index);

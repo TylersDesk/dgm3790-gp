@@ -3,32 +3,56 @@
 /* Controllers */
 
 angular.module('myApp.controllers', []).
-  controller('AppCtrl', function ($scope, $http) {
-    $http({
-      method: 'GET',
-      url: '/api/name'
-    }).
-    success(function (data, status, headers, config) {
-      $scope.name = data.name;
-    }).
-    error(function (data, status, headers, config) {
-      $scope.name = 'Error!'
-    });
-  }).
+  // controller('AppCtrl', function ($scope, $http) {
+  //   $http({
+  //     method: 'GET',
+  //     url: '/api/name'
+  //   }).
+  //   success(function (data, status, headers, config) {
+  //     $scope.name = data.name;
+  //   }).
+  //   error(function (data, status, headers, config) {
+  //     $scope.name = 'Error!'
+  //   });
+  // }).
   controller('homeCtrl', function ($scope, $http) {
     console.log('getting Data');
     $http.get('/js/data/dataStore.json').success(function(data) {
       $scope.captions = data.captions;
-      console.log($scope.captions);
+      //console.log($scope.captions);
     });
   }).
   controller('captionCtrl', function ($scope, $http, $routeParams) {
-    console.log('/js/data/comic/' + $routeParams.captionID + '.json');
+    
+    //Get Sample DataStore from local
     $http.get('/js/data/comic/' + $routeParams.captionID + '.json').success( function (data) {
+      console.log('Grabbing Local Data');
       $scope.data = data;
       console.log($scope.data);
     });
+
+    //Get CouchDB Store
+    console.log('Attemping to access DB');
+    $http.get('/api/' + $routeParams.captionID).success(function (data) {
+      $scope.remote = data;
+      console.log($scope.remote);
+    });
+
+    $scope.plusCaption = function(theID) {
+      var someVar = theID;
+      console.log(someVar);
+      $http.get('/api/update/' + $routeParams.captionID).success(function (data) {
+        console.log('I updated the DB!');
+      });
+    }
+
+    //Firing Swipe
+   
+    // window.mySwipe = Swipe(document.getElementById('slider'));
+
+
   });
+
 
 // function AlertDemoCtrl($scope) {
 //   $scope.alerts = [
