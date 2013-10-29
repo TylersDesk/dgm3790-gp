@@ -3,9 +3,9 @@
 	<img class="img-responsive" ng-src="/img/caption-img/{{data.img}}" />
 	<div class="row">
 		<div ng-repeat="captions in remote">
-			<div class="col-xs-8 col-sm-8">{{captions.caption}}</div>
+			<div class="col-xs-8 col-sm-8">{{captions}}</div>
 			<div class="col-xs-4 col-sm-4">
-				<span class="glyphicon glyphicon-thumbs-up" ng-click="plusCaption(captions.id)"> {{captions.plus}}</span>
+				<span class="glyphicon glyphicon-thumbs-up" ng-click="plusCaption(captions.id)"></span>
 				<span class="glyphicon glyphicon-thumbs-down"> {{captions.minus}}</span>
 			</div>
 		</div>

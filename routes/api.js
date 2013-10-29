@@ -40,16 +40,31 @@ function api(req, res) {
   var responseBody;
 
   //Build URL
-  var db = new(cradle.Connection)().database('dgm3790_gp');
+  var db = new(cradle.Connection)().database('dgm3790_gp_test'); //other db is dgm3790_gp
+ 
 
-  db.get(params, function (err, doc) {
-    if(err) { 
-      console.log('There was an error getting document: ' + params);
-    } else {
-      console.log('Successful accesing document');
-      res.send(doc.captions);
-    }
+  db.view('getcaptions/comic01', function (err, viewRes) {
+      myArray = []
+      viewRes.forEach(function (row) {
+        console.log("%s is the caption", row.caption);
+        myArray.push(row.caption);
+      });
+      console.log("%s is the object", myArray);
+
+      res.send(myArray);
   });
+
+
+   
+
+  // db.get(params, function (err, doc) {
+  //   if(err) { 
+  //     console.log('There was an error getting document: ' + params);
+  //   } else {
+  //     console.log('Successful accesing document');
+  //     res.send(doc.captions);
+  //   }
+  // });
 }
 
 function updateApi(req, res) {
