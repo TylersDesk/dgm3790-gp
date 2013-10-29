@@ -12,6 +12,7 @@ Dayton Rohner <daytroh@gmail.com>
 
 Tyler Maynard <tymayn@gmail.com>
 
+Random Hero <hero@random.com>
 
 ### Steps to setup project:
 
