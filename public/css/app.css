@@ -14,6 +14,10 @@ border: 1px solid #DADADA;}
   border-bottom: 1px solid rgb(213, 213, 213);
 }
 
-.small-capt-img {max-width:200px; border-radius: 50%;}
+.small-capt-img {
+	max-width:200px; 
+	border-radius: 50%;
+	box-shadow: 10px 10px 5px #888888;
+}
 
 .captoin-capsul {text-align: center;}
