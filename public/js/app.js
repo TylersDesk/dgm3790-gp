@@ -8,7 +8,7 @@ angular.module('myApp', [
   'myApp.directives',
   'ui.bootstrap'
 ]).
-config(function ($routeProvider, $locationProvider) {
+config(function ($routeProvider) {
   $routeProvider.
     when('/', {
       templateUrl: '/partials/home.html',
@@ -22,5 +22,5 @@ config(function ($routeProvider, $locationProvider) {
       redirectTo: '/'
     });
 
-  $locationProvider.html5Mode(true);
+  //$locationProvider.html5Mode(true);
 });

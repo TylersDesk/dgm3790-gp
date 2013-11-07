@@ -1,6 +1,28 @@
 <div class="container">
-	<h3>{{data.name}}</h3>
-	<img class="img-responsive" ng-src="/img/caption-img/{{data.img}}" />
+	<h1>Current page is {{currentPage}}</h1>
+	<img class="img-responsive" ng-src="/img/caption-img/{{currentPage}}.png" />
+	<br />
+	<div class="row">
+	  <div class="col-lg-12">
+	    <div class="input-group">
+	      <input type="text" class="form-control" ng-Model="theCaption">
+	      <div class="input-group-btn">
+	        <button ng-Click="AC(theCaption, currentPage)" type="button" class="btn btn-default">Add Caption <span class="glyphicon glyphicon-plus"></span></button>
+	      </div><!-- /btn-group -->
+	    </div><!-- /input-group -->
+	  </div><!-- /.col-lg-6 -->
+	</div>
+	<br />
+	<div class="row">
+		<div ng-repeat="caption in capSet">
+			<div class="col-xs-8">{{caption.value.title}}</div>
+			<div class="col-xs-2">{{caption.value.plus}} <span class="glyphicon glyphicon-thumbs-up"></span></div>
+			<div class="col-xs-2">{{caption.value.minus}} <span class="glyphicon glyphicon-thumbs-down"></span></div>
+		</div>
+		
+	</div>
+
+	
 </div>
 
 <!--  Anguluar UI Stuff
