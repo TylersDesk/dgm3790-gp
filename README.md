@@ -57,3 +57,15 @@ This should create and checkout a new branch. Run `git status` again to make sur
 - `git status` -> should say something like `# On branch YOURNAME`
 
 Now you free to play around, change code and all that. I will go over adding those changes back into the DEVELOP branch on Tuesday.
+
+## Replication Steps
+
+Go to your replication in couch.
+
+Click the remote database and enter:
+`http://blog.pirho.com:5984/dgm3790_gp/`
+
+For our project, we will keep the same name. So select local databaseand put in:
+`dgm3790_gp`
+
+Now you should be able to grab develop from the repo and run the app.
