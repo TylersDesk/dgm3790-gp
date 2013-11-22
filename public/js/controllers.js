@@ -1,60 +1,19 @@
 'use strict';
 
-/*  Pouch Init */
-
-var db = new PouchDB('dgm3790_gp');
-var remoteCouch = 'http://127.0.0.1:5984/dgm3790_gp/';
-
-function sync() {
-  //syncDom.setAttribute('data-sync-state', 'syncing');
-  var opts = {
-    continuous: true, 
-    complete: function() {
-      console.log("I synced");
-    }
-  };
-  db.replicate.to(remoteCouch, opts);
-  db.replicate.from(remoteCouch, opts);
-}
-
-sync();
-
-var addCaption = function (text, captionID) {
-  var caption = {
-    _id: new Date().toISOString(),
-    title: text,
-    caption: captionID,
-    plus: 0,
-    minus: 0
-  };
-  db.put(caption, function callback(err, result) {
-    if (!err) {
-      console.log('Successfully posted a caption!');
-    }
-  });
-}
-
-function mapCaption(doc, docID) {
-  if(doc.captoin == docID) {
-    emit(doc.title, doc);
-  }
-}
-
-
 /* Controllers */
 
 angular.module('myApp.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
-    $http({
-      method: 'GET',
-      url: '/api/name'
-    }).
-    success(function (data, status, headers, config) {
-      $scope.name = data.name;
-    }).
-    error(function (data, status, headers, config) {
-      $scope.name = 'Error!'
-    });
+    // $http({
+    //   method: 'GET',
+    //   url: '/api/name'
+    // }).
+    // success(function (data, status, headers, config) {
+    //   $scope.name = data.name;
+    // }).
+    // error(function (data, status, headers, config) {
+    //   $scope.name = 'Error!'
+    // });
   }).
   controller('homeCtrl', function ($scope, $http) {
     console.log('getting Data');
@@ -63,18 +22,37 @@ angular.module('myApp.controllers', []).
       console.log($scope.captions);
     });
   }).
-  controller('captionCtrl', function ($scope, $http, $routeParams) {
+  controller('captionCtrl', function ($scope, $http, $routeParams, couchDB) {
     //console.log('Fire in the hole!');
 
-    function getCaptions() {db.query({map: mapCaption}, {reduce: false}, function(err, response) {
-        console.log(response);
-        $scope.capSet = response.rows;
-        console.log($scope.capSet);
-        $scope.$apply();
+    console.log(couchDB);
+
+
+
+
+
+
+
+
+
+    // ROUND 2
+
+    function getCaptions() {
+        couchDB.query({map: mapCaption}, {reduce: false}, function(err, response) {
+          console.log(response);
+          $scope.capSet = response.rows;
+          console.log($scope.capSet);
+          $scope.$apply();
       });
     }
 
     getCaptions();
+
+    function mapCaption(doc, docID) {
+      if(doc.captoin == docID) {
+        emit(doc.title, doc);
+      }
+    }
 
     $scope.AC = function (text, captionID) {
       var caption = {
@@ -84,7 +62,7 @@ angular.module('myApp.controllers', []).
         plus: 0,
         minus: 0
       };
-      db.put(caption, function callback(err, result) {
+      couchDB.put(caption, function callback(err, result) {
         if (!err) {
           console.log('Successfully posted a caption!');
           getCaptions();
@@ -94,8 +72,23 @@ angular.module('myApp.controllers', []).
 
     $scope.currentPage = $routeParams.captionID;
 
-    console.log($scope.capSet);
-    console.log("did I fire?");
+    couchDB.info(function(err, info) {
+      couchDB.changes({
+        since: info.update_seq,
+        continuous: true,
+        onChange: updateUI
+      });
+    });
+
+    function updateUI() {
+      console.log('Maybe push to scope and update here?');
+      getCaptions();
+    }
+
+
+
+
+    //Round1
 
     // //console.log('/js/data/comic/' + $routeParams.captionID + '.json');
     // $http.get('/js/data/comic/' + $routeParams.captionID + '.json').success( function (data) {
