@@ -43,6 +43,7 @@ angular.module('myApp.controllers', []).
           $scope.capSet = response.rows;
           console.log($scope.capSet);
           $scope.$apply();
+          window.mySwipe = Swipe(document.getElementById('slider'));
       });
     }
 
@@ -84,6 +85,8 @@ angular.module('myApp.controllers', []).
       console.log('Maybe push to scope and update here?');
       getCaptions();
     }
+
+    
 
 
 
