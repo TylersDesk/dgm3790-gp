@@ -24,7 +24,7 @@ controller('homeCtrl', function($scope, $http) {
 }).
 controller('captionCtrl', function($scope, $http, $routeParams, couchDB) {
   //console.log('Fire in the hole!');
-
+   $scope.predicate = 'plus';
   // ROUND 2
 
   function getCaptions() {
@@ -79,6 +79,47 @@ controller('captionCtrl', function($scope, $http, $routeParams, couchDB) {
     console.log('Maybe push to scope and update here?');
     getCaptions();
   }
+
+  $scope.captionScore = function(docID,addOrMinus) {
+    couchDB.get(docID, function(err, doc) {
+      console.log(doc);
+      var updatedDoc = {
+        _id     : doc._id,
+        _rev    : doc._rev,
+        title   : doc.title,
+        caption : doc.caption,
+        plus    : updatePlus(addOrMinus, doc.plus),
+        minus   : 0
+      };
+      console.log(updatedDoc);
+      couchDB.put(updatedDoc, function(err, response) {
+        console.log('Updated a dcument');
+      });
+
+    });
+  }
+
+  function updatePlus(addOrMinus, current) {
+    var returnValue;
+
+    if (addOrMinus === "add") {
+      returnValue = current + 1;
+      console.log("Current Value is: " + returnValue);
+    } else {
+      returnValue = current - 1;
+      if (returnValue <= 0) {
+        returnValue = 0;
+      } 
+    }
+
+    return returnValue
+  }
+
+  $scope.sortMe = function() {
+        return function(object) {
+            return object.value.plus;
+        }
+    }
 
 
 

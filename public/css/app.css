@@ -14,6 +14,11 @@ border: 1px solid #DADADA;}
   border-bottom: 1px solid rgb(213, 213, 213);
 }
 
+.caption-container {
+	position:relative;
+	padding:15px;
+}
+
 .small-capt-img {
 	max-width:200px; 
 	border-radius: 50%;
@@ -23,6 +28,7 @@ border: 1px solid #DADADA;}
 .captoin-capsul {text-align: center;}
 
 .swipe {
+	margin: 20px;
   overflow: hidden;
   visibility: hidden;
   position: relative;
@@ -35,4 +41,16 @@ border: 1px solid #DADADA;}
   float:left;
   width:100%;
   position: relative;
+}
+
+.thecaption {
+padding: 20px;
+background: #fefefe;
+border: 1px solid #c2c2c2;
+border-radius: 20px;
+margin-bottom: 10px;
+}
+
+#slider .row {
+	margin:0;
 }
