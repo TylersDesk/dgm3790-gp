@@ -14,7 +14,7 @@ Tyler Maynard <tymayn@gmail.com>
 
 Random Hero <hero@random.com>
 
-### Steps to setup project:
+## Steps to setup project:
 
 First you'll need to grab the repository, this will get all the necesarry files.
 + `git clone https://github.com/TylersDesk/dgm3790-gp.git`
@@ -36,6 +36,19 @@ Now you can simply tell node to run the server:
 You should see the server running. If you don't check the following steps above. Go check out the app:
 
 + `http:\\www.localhost.com:3000` - In a browser
+
+## CouchDB Configuration
+
+By default the app will try and sync with a local instance of couch, specifically a DB located at `http://127.0.0.1/dgm3790_gp/`. This means you should replicate an instance of this database based off of Tyler's own couchDB instance.
+
++ Make sure you have CouchDB installed
+
++ Browse to the replicator page on CouchDB
+
++ Left Side -> Replicate Changes From: Remote Database `http://blog.pirho.com:5984/dgm3790_gp/`
++ Right Side -> to: Local Databse `dgm3790_gp`
+
+It may prompt you to create the database, just accept and you should see the event window populate once the replicator has finished.
 
 ### Want to play with the code?
 
