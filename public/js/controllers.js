@@ -1,4 +1,5 @@
 'use strict';
+var globalCaptionID;
 
 /* Controllers */
 
@@ -25,6 +26,8 @@ controller('homeCtrl', function($scope, $http) {
 controller('captionCtrl', function($scope, $http, $routeParams, couchDB) {
   //console.log('Fire in the hole!');
    $scope.predicate = 'plus';
+   $scope.currentPage = $routeParams.captionID;
+   globalCaptionID = $routeParams.captionID;
   // ROUND 2
 
   function getCaptions() {
@@ -35,7 +38,6 @@ controller('captionCtrl', function($scope, $http, $routeParams, couchDB) {
     }, function(err, response) {
       console.log(response);
       $scope.capSet = response.rows;
-      console.log($scope.capSet);
       $scope.$apply();
       window.mySwipe = Swipe(document.getElementById('slider'));
     });
@@ -43,8 +45,8 @@ controller('captionCtrl', function($scope, $http, $routeParams, couchDB) {
 
   getCaptions();
 
-  function mapCaption(doc, docID) {
-    if (doc.captoin == docID) {
+  function mapCaption(doc) {
+    if (doc.caption == globalCaptionID) {
       emit(doc.title, doc);
     }
   }
@@ -120,36 +122,4 @@ controller('captionCtrl', function($scope, $http, $routeParams, couchDB) {
             return object.value.plus;
         }
     }
-
-
-
-  //Round1
-
-  // //console.log('/js/data/comic/' + $routeParams.captionID + '.json');
-  // $http.get('/js/data/comic/' + $routeParams.captionID + '.json').success( function (data) {
-  //   //$scope.data = data;
-  //   //console.log($scope.data);
-
-
-
-  //   //console.log($scope.capSet[0]);
-
-
-  // });
 });
-
-// function AlertDemoCtrl($scope) {
-//   $scope.alerts = [
-//     { type: 'danger', msg: 'Oh snap! Change a few things up and try submitting again.' }, 
-//     { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
-//   ];
-
-//   $scope.addAlert = function() {
-//     $scope.alerts.push({ type: 'info', msg: "Another alert!"});
-//   };
-
-//   $scope.closeAlert = function(index) {
-//     $scope.alerts.splice(index, 1);
-//   };
-
-// }
