@@ -13,7 +13,7 @@ services.factory('couchDB', ['$rootScope', function($rootScope) {
  	console.log('Accesing CouchDB Service');
 
 	var db = new PouchDB('dgm3790_gp');
-	var remoteCouch = 'http://127.0.0.1:5984/dgm3790_gp/';
+	var remoteCouch = 'http://pirho:pirho@blog.pirho.com:5984/dgm3790_gp/';
 
 	db.replicate.to(remoteCouch, {continuous: true, complete: syncError});
   	db.replicate.from(remoteCouch, {continuous: true, complete: syncError});
