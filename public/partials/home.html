@@ -1,24 +1,40 @@
-<div class="jumbotron">
-
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-4 center caption-card">
+			<h2><span class="glyphicon glyphicon-hand-up"></span> Step 1</h2>
+			<p>Select a comic.</p>
+		</div>
+		<div class="col-xs-12 col-md-4 center caption-card">
+			<h2><span class="glyphicon glyphicon-pencil"></span> Step 2</h2>
+			<p>Write a caption.</p>
+		</div>
+		<div class="col-xs-12 col-md-4 center caption-card">
+			<h2><span class="glyphicon glyphicon-check"></span> Step 3</h2>
+			<p>Rate others!</p>
+		</div>
+	</div>
 </div>
 
 <div class="container">
 	<div class="row">
-		<div class="col-xs-6 col-sm-4 captoin-capsule" ng-repeat="captionItem in captions">
-			<h2>{{captionItem.id}}</h2>
-			<a href="#/caption/{{captionItem.id}}">
-				<img class="small-capt-img" ng-src="/img/caption-img/{{captionItem.img}}" />
-			</a>
+		<div class="col-xs-12 col-sm-6" ng-repeat="captionItem in captions">
+			<div class="caption-card">
+				<h2>{{captionItem.id}}</h2>
+				<a href="#/caption/{{captionItem.id}}">
+					<img class="img-responsive small-capt-img" ng-src="/img/caption-img/{{captionItem.img}}" />
+				</a>
+				<hr>
+				<div class="pull-left card-info">
+				<span class="glyphicon glyphicon-calendar"></span>	 {{captionItem.date}}<br />
+				<span class="glyphicon glyphicon-bullhorn"></span> {{captionItem.tag}}
+				</div>
+				<div class="pull-right card-button">
+				<a href="#/caption/{{captionItem.id}}" class="btn btn-primary btn-lg active" role="button">View Comic</a>
+				</div>
+				<div style="clear:both"></div>
+
+			</div>
 		</div>
 	</div>
 	
 </div>
-
-<!--  Anguluar UI Stuff
-<div class="container containcolors">
-<div ng-controller="AlertDemoCtrl">
-  <alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">{{alert.msg}}</alert>
-  <button class='btn' ng-click="addAlert()">Add Alert</button>
-</div>
-</div>
- -->

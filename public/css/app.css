@@ -1,7 +1,7 @@
 /* app css stylesheet */
 
-body {background:#EAEFF3;}
-.navbar-default {background: #2C5368; color:#efefef; border-color:#F3F7E6;}
+body {background:#E9E9E9;}
+.navbar-default {background: #287199; color:#efefef; border-color:#F3F7E6;}
 .navbar-default .navbar-brand {color:#efefef;}
 .navbar-default .navbar-brand:hover {color:#F3F7E6;}
 .containcolors {background-color: #fefefe;
@@ -19,13 +19,7 @@ border: 1px solid #DADADA;}
 	padding:15px;
 }
 
-.small-capt-img {
-	max-width:200px; 
-	border-radius: 50%;
-	box-shadow: 10px 10px 5px #888888;
-}
-
-.captoin-capsul {text-align: center;}
+.caption-capsul {text-align: center;}
 
 .swipe {
 	margin: 20px;
@@ -44,13 +38,47 @@ border: 1px solid #DADADA;}
 }
 
 .thecaption {
-padding: 20px;
-background: #fefefe;
 border: 1px solid #c2c2c2;
-border-radius: 20px;
-margin-bottom: 10px;
+padding:10px;
 }
 
 #slider .row {
 	margin:0;
+}
+
+span.badge.pull-right {
+  display: block;
+width: 100%;
+padding: 3px;
+font-size: 20px;
+margin-bottom: 11px;
+}
+
+.caption-card {
+  background:#fefefe;
+  border:1px solid #c9c9c9;
+  margin-bottom: 20px;
+}
+
+.caption-card h2 {text-align: center;padding-top: 5px;}
+
+.caption-card img {
+  border-bottom: 1px solid #c9c9c9;
+  border-top: 1px solid #c9c9c9;
+}
+
+.card-info {padding-left:20px;}
+.card-button {padding-right:20px;margin-bottom:20px;}
+
+nav {font-family: 'Frijole', cursive;}
+.center {text-align: center;}
+.center-nav {
+  text-align: center;
+  color: #fefefe;
+  font-size: 2.2em;
+}
+
+a.center-nav:hover {
+  color:#000000;
+  text-decoration: none;
 }

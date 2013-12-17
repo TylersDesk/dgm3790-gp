@@ -2,22 +2,32 @@
 	"captions":[
 		{
 			"id":"comic01",
+			"date":"November 29 2013",
+			"tag": "Small blurbl here",
 			"img":"comic01.png"
 		},
 		{
 			"id":"comic02",
+			"date":"November 18 2013",
+			"tag": "Small blurbl here",
 			"img":"comic02.png"
 		},
 		{
 			"id":"comic03",
+			"date":"November 1 2013",
+			"tag": "Small blurbl here",
 			"img":"comic03.png"
 		},
 		{
 			"id":"comic04",
+			"date":"October 23 2013",
+			"tag": "Small blurbl here",
 			"img":"comic04.png"
 		},
 		{
 			"id":"comic05",
+			"date":"October 12 2013",
+			"tag": "Small blurbl here",
 			"img":"comic05.png"
 		}
 	]
