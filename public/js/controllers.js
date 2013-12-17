@@ -18,7 +18,7 @@ controller('AppCtrl', function($scope, $http) {
 }).
 controller('homeCtrl', function($scope, $http) {
   console.log('getting Data');
-  $http.get('/js/data/dataStore.json').success(function(data) {
+  $http.get('js/data/dataStore.json').success(function(data) {
     $scope.captions = data.captions;
     console.log($scope.captions);
   });

@@ -11,11 +11,11 @@ angular.module('myApp', [
 config(function ($routeProvider) {
   $routeProvider.
     when('/', {
-      templateUrl: '/partials/home.html',
+      templateUrl: 'partials/home.html',
       controller: 'homeCtrl'
     }).
     when('/caption/:captionID', {
-      templateUrl: '/partials/caption.html',
+      templateUrl: 'partials/caption.html',
       controller: 'captionCtrl'
     }).
     otherwise({
