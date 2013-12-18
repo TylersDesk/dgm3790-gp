@@ -23,7 +23,7 @@ Change directory into the newly downloaded folder. `cd dgm3790-gp`.
 
 Now you will need to switch to the develop branch. As this has the latest changes, if you don't do this you may not get all of the latest edits I have made.
 
-+ `git checkout -f develop`
++ `git checkout -f master`
 
 Next you need to `npm install`. This reads the package.json and installs node modules
 
@@ -38,6 +38,8 @@ You should see the server running. If you don't check the following steps above.
 + `http:\\www.localhost.com:3000` - In a browser
 
 ## CouchDB Configuration
+
+#### Note -  This is no longer needed as we have moved the app to use a production couchDB server. You can still use the information below to replicate for development purposes.
 
 By default the app will try and sync with a local instance of couch, specifically a DB located at `http://127.0.0.1/dgm3790_gp/`. This means you should replicate an instance of this database based off of Tyler's own couchDB instance.
 
